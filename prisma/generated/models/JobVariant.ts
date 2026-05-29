@@ -295,14 +295,6 @@ export type JobVariantScalarRelationFilter = {
   isNot?: Prisma.JobVariantWhereInput
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
 export type JobVariantCreateNestedOneWithoutJournalsInput = {
   create?: Prisma.XOR<Prisma.JobVariantCreateWithoutJournalsInput, Prisma.JobVariantUncheckedCreateWithoutJournalsInput>
   connectOrCreate?: Prisma.JobVariantCreateOrConnectWithoutJournalsInput

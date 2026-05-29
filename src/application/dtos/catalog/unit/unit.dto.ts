@@ -1,4 +1,8 @@
-import { IGetByIdDto, IGetManyQueryDto } from '@application/dtos/common';
+import {
+  IGetByIdDto,
+  IGetManyQueryDto,
+  IGetManyResponse,
+} from '@application/dtos/common';
 import {
   ICreateUnitInput,
   IUnitEntity,
@@ -16,4 +20,12 @@ export type IUpdateUnitDto = { id: string } & IUpdateUnitInput;
 
 export type IDeleteUnitDto = { id: string };
 
-export type IUnitResponse = IUnitEntity;
+export type IGetUnitResponse = IUnitEntity;
+
+export type IGetUnitsResponse = IGetManyResponse<IUnitEntity>;
+
+export type ICreateUnitResponse = IUnitEntity;
+
+export type IUpdateUnitResponse = IUnitEntity;
+
+export type IDeleteUnitResponse = boolean;

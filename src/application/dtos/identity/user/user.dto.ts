@@ -1,4 +1,4 @@
-import { IGetByIdDto, IGetManyQueryDto } from '@application/dtos/common';
+import { IGetByIdDto, IGetManyQueryDto, IGetManyResponse } from '@application/dtos/common';
 import {
   ICreateUserInput,
   IUpdateUserInput,
@@ -16,4 +16,12 @@ export type IUpdateUserDto = { id: string } & IUpdateUserInput;
 
 export type IDeleteUserDto = { id: string };
 
-export type IUserResponse = IUserEntity;
+export type IGetUserResponse = IUserEntity;
+
+export type IGetUsersResponse = IGetManyResponse<IUserEntity>;
+
+export type ICreateUserResponse = IUserEntity;
+
+export type IUpdateUserResponse = IUserEntity;
+
+export type IDeleteUserResponse = boolean;

@@ -1,15 +1,12 @@
 #!/bin/sh
 set -e
 
-if [ ! -f node_modules/.package-lock.json ] || [ package-lock.json -nt node_modules/.package-lock.json ]; then
-  echo "Dependencies changed, running npm install..."
+if [ ! -d node_modules/@nestjs/core ]; then
+  echo "Installing dependencies..."
   npm install
 fi
 
-echo "Generating Prisma client..."
-npx prisma generate
-
-echo "Watching Prisma schema..."
+echo "Watching Prisma schema and generating client..."
 npx prisma generate --watch &
 
 echo "Starting NestJS in watch mode..."

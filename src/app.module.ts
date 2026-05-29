@@ -1,5 +1,10 @@
 import { Module } from '@nestjs/common';
 import { HttpErrorsModule } from '@shared/errors';
+import { UnitModule } from 'src/infrastructure/modules/catalog/unit.module';
+import { UserModule } from 'src/infrastructure/modules/identity/user.module';
+import { JobVariantModule } from 'src/infrastructure/modules/job/job-variant.module';
+import { JournalModule } from 'src/infrastructure/modules/journal/journal.module';
+import { PrismaModule } from 'src/infrastructure/modules/prisma.module';
 
 @Module({
   imports: [
@@ -7,8 +12,11 @@ import { HttpErrorsModule } from '@shared/errors';
       serviceName: 'job-journal-nest-app',
       logErrors: true,
     }),
+    PrismaModule,
+    UnitModule,
+    JobVariantModule,
+    UserModule,
+    JournalModule,
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}

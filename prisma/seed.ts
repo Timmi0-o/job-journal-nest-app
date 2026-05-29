@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { PrismaPg } from '@prisma/adapter-pg';
-import { PrismaClient } from './generated/client';
+import { PrismaClient } from '../generated/prisma/client';
 import { JOB_VARIANTS_SEED } from '../seeds/job-variants.seed';
 import { JOURNALS_SEED } from '../seeds/journals.seed';
 import { UNITS_SEED } from '../seeds/units.seed';

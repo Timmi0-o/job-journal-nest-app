@@ -3,6 +3,9 @@ import type { Schema } from 'ajv';
 
 export const decimalStringPattern = '^[0-9]+(\\.[0-9]+)?$';
 
+export const uuidPattern =
+  '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$';
+
 export const minorUnitsInt32Schema = {
   type: 'integer',
   minimum: 0,
@@ -18,7 +21,7 @@ export const nullableMinorUnitsInt32Schema = {
 
 export const idSchema = {
   type: 'string',
-  format: 'uuid',
+  pattern: uuidPattern,
 } as const;
 
 export const presetSchema = {
@@ -128,7 +131,10 @@ export const querySchemaProperties = {
   requiredIds: requiredIdsSchema,
 } as const;
 
-export function uuidArraySchema(options?: { minItems?: number; nullable?: boolean }): Schema {
+export function uuidArraySchema(options?: {
+  minItems?: number;
+  nullable?: boolean;
+}): Schema {
   const { minItems = 0, nullable = false } = options ?? {};
   return {
     type: 'array',

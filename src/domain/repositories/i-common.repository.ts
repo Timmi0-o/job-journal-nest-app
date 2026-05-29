@@ -1,4 +1,4 @@
-import { BaseRepository } from 'src/infrastrucure/persistence/repositories/base.repository';
+import { BaseRepository } from 'src/infrastructure/persistence/repositories/base.repository';
 import {
   FindOptions,
   QueryInclude,

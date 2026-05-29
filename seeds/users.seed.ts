@@ -1,4 +1,4 @@
-import { Role, Status } from '../prisma/generated/client';
+import { Role, Status } from '../generated/prisma/client';
 import { SEED_PASSWORD_HASH, seedUuid } from './seed-helpers';
 
 export interface SeedUser {

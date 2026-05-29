@@ -1,4 +1,4 @@
-import { IGetByIdDto, IGetManyQueryDto } from '@application/dtos/common';
+import { IGetByIdDto, IGetManyQueryDto, IGetManyResponse } from '@application/dtos/common';
 import {
   ICreateJournalInput,
   IJournalEntity,
@@ -18,4 +18,12 @@ export type IUpdateJournalDto = { id: string } & Partial<IJournalDateInput>;
 
 export type IDeleteJournalDto = { id: string };
 
-export type IJournalResponse = IJournalEntity;
+export type IGetJournalResponse = IJournalEntity;
+
+export type IGetJournalsResponse = IGetManyResponse<IJournalEntity>;
+
+export type ICreateJournalResponse = IJournalEntity;
+
+export type IUpdateJournalResponse = IJournalEntity;
+
+export type IDeleteJournalResponse = boolean;

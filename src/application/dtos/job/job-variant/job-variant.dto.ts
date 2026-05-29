@@ -1,4 +1,4 @@
-import { IGetByIdDto, IGetManyQueryDto } from '@application/dtos/common';
+import { IGetByIdDto, IGetManyQueryDto, IGetManyResponse } from '@application/dtos/common';
 import {
   ICreateJobVariantInput,
   IJobVariantEntity,
@@ -16,4 +16,12 @@ export type IUpdateJobVariantDto = { id: string } & IUpdateJobVariantInput;
 
 export type IDeleteJobVariantDto = { id: string };
 
-export type IJobVariantResponse = IJobVariantEntity;
+export type IGetJobVariantResponse = IJobVariantEntity;
+
+export type IGetJobVariantsResponse = IGetManyResponse<IJobVariantEntity>;
+
+export type ICreateJobVariantResponse = IJobVariantEntity;
+
+export type IUpdateJobVariantResponse = IJobVariantEntity;
+
+export type IDeleteJobVariantResponse = boolean;

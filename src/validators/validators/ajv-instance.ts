@@ -15,5 +15,5 @@ export const ajv = new Ajv({
 
 export const ajvStrict = new Ajv(commonOptions);
 
-addFormats(ajv, ['uuid', 'date-time']);
-addFormats(ajvStrict, ['uuid', 'date-time']);
+addFormats(ajv, ['date-time', 'email']);
+addFormats(ajvStrict, ['date-time', 'email']);

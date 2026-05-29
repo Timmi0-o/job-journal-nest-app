@@ -21,7 +21,10 @@ export class JournalFilterExtractor {
     }
 
     if (preset.unitId?.value?.length) {
-      const f = FilterPresetMapperCommon.mapStringArrayFilter('unitId', preset.unitId);
+      const f = FilterPresetMapperCommon.mapStringArrayFilter(
+        'unitId',
+        preset.unitId,
+      );
       if (Object.keys(f).length > 0) parts.push(f);
     }
 

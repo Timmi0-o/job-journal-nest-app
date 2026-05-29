@@ -8,7 +8,6 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Currency.js'
 export type * from './models/JobVariant.js'
 export type * from './models/Journal.js'
 export type * from './models/Unit.js'

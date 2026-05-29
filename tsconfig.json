@@ -15,7 +15,10 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@domain/*": ["src/domain/*"]
+      "@domain/*": ["src/domain/*"],
+      "@shared/*": ["src/shared/*"],
+      "@application/*": ["src/application/*"],
+      "@validators/*": ["src/validators/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

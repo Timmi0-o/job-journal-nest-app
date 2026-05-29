@@ -59,7 +59,7 @@ export interface IFindManyAndCountRepo {
 export class GetManyHelper {
   private static readonly logger = new Logger(GetManyHelper.name);
 
-  private static readonly DEFAULT_ORDER_BY = { id: 'asc' as const };
+  private static readonly DEFAULT_ORDER_BY = { createdAt: 'desc' as const };
 
   public static prepareFindManyParams<TOrderBy, TSelect = string>(
     params: IPrepareGetManyQueryParams<TOrderBy, TSelect> & {

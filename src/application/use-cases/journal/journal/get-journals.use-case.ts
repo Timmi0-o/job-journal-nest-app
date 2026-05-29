@@ -1,6 +1,9 @@
-import type { IGetJournalsDto, IGetJournalsResponse } from '@application/dtos/journal/journal';
+import type {
+  IGetJournalsDto,
+  IGetJournalsResponse,
+} from '@application/dtos/journal/journal';
 import { GetManyHelper } from '@application/use-cases/helpers';
-import type { IJournalEntity } from '@domain/entities/journal/journal/i-journal.entity';
+import type { IJournalWithRelations } from '@domain/entities/journal/journal/i-journal.entity';
 import type { IJournalRepository } from '@domain/repositories/journal/journal/i-journal.repository';
 import type { IJournalValidator } from '@domain/validators/journal/journal';
 import { getJournalPresetConfig } from '@shared/presets';
@@ -19,15 +22,17 @@ export class GetJournalsUseCase {
 
     const findParams = GetManyHelper.prepareFindManyParams({
       payload,
-      presetSelect: presetConfig.select as string[],
+      presetSelect: presetConfig.select,
       where: dbWhere,
       requiredIds: payload.requiredIds,
+      include: presetConfig.include,
     });
 
-    const [journals, totalCount] = await GetManyHelper.findManyAndCount<IJournalEntity>(
-      this.repository,
-      findParams,
-    );
+    const [journals, totalCount] =
+      await GetManyHelper.findManyAndCount<IJournalWithRelations>(
+        this.repository,
+        findParams,
+      );
 
     return GetManyHelper.buildResponse({
       data: journals,

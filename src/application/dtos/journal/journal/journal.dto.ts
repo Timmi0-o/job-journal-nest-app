@@ -2,6 +2,7 @@ import { IGetByIdDto, IGetManyQueryDto, IGetManyResponse } from '@application/dt
 import {
   ICreateJournalInput,
   IJournalEntity,
+  IJournalWithRelations,
   IUpdateJournalInput,
 } from '@domain/entities/journal/journal/i-journal.entity';
 import { IJournalFiltersPreset } from '@shared/presets';
@@ -18,9 +19,9 @@ export type IUpdateJournalDto = { id: string } & Partial<IJournalDateInput>;
 
 export type IDeleteJournalDto = { id: string };
 
-export type IGetJournalResponse = IJournalEntity;
+export type IGetJournalResponse = IJournalWithRelations;
 
-export type IGetJournalsResponse = IGetManyResponse<IJournalEntity>;
+export type IGetJournalsResponse = IGetManyResponse<IJournalWithRelations>;
 
 export type ICreateJournalResponse = IJournalEntity;
 

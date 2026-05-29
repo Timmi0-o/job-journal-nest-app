@@ -1,6 +1,7 @@
 import {
   ICreateJournalInput,
   IJournalEntity,
+  IJournalRelations,
   IUpdateJournalInput,
 } from '@domain/entities/journal/journal/i-journal.entity';
 import { IJournalRepository } from '@domain/repositories/journal/journal/i-journal.repository';
@@ -14,7 +15,7 @@ export class JournalRepository
     IJournalEntity,
     ICreateJournalInput,
     IUpdateJournalInput,
-    undefined,
+    IJournalRelations,
     PrismaService['journal'],
     PrismaService
   >

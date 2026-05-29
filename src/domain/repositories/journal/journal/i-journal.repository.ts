@@ -1,6 +1,7 @@
 import {
   ICreateJournalInput,
   IJournalEntity,
+  IJournalRelations,
   IUpdateJournalInput,
 } from '@domain/entities/journal/journal/i-journal.entity';
 import { ICommonRepository } from '@domain/repositories/i-common.repository';
@@ -11,5 +12,5 @@ export interface IJournalRepository extends ICommonRepository<
   IJournalEntity,
   ICreateJournalInput,
   IUpdateJournalInput,
-  undefined
+  IJournalRelations
 > {}

@@ -16,9 +16,18 @@ export interface IUserEntity {
   updatedAt: Date;
 }
 
+export type ICreateUserPayload = Omit<
+  IUserEntity,
+  'id' | 'createdAt' | 'updatedAt' | 'passwordHash'
+> & {
+  password: string;
+};
+
 export type ICreateUserInput = Omit<
   IUserEntity,
   'id' | 'createdAt' | 'updatedAt'
 >;
+
+export type IUpdateUserPayload = Partial<ICreateUserPayload>;
 
 export type IUpdateUserInput = Partial<ICreateUserInput>;

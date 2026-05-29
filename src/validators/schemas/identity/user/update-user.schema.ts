@@ -15,7 +15,7 @@ export const updateUserSchema: JSONSchemaType<IUpdateUserDto> = {
     phone: { type: 'string', maxLength: 50, nullable: true },
     status: { type: 'string', enum: Object.values(UserStatus), nullable: true },
     role: { type: 'string', enum: Object.values(UserRole), nullable: true },
-    passwordHash: { type: 'string', minLength: 8, maxLength: 255, nullable: true },
+    password: { type: 'string', minLength: 8, maxLength: 255, nullable: true },
   },
   required: ['id'],
   additionalProperties: false,

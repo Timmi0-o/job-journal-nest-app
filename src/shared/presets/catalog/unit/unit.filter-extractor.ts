@@ -8,7 +8,10 @@ export class UnitFilterExtractor {
     const parts: Record<string, unknown>[] = [];
 
     if (preset.search?.value) {
-      const f = FilterPresetMapperCommon.mapSearchByFields(preset.search.value, ['name']);
+      const f = FilterPresetMapperCommon.mapSearchByFields(
+        preset.search.value,
+        ['name', 'id'],
+      );
       if (Object.keys(f).length > 0) parts.push(f);
     }
 
@@ -18,7 +21,10 @@ export class UnitFilterExtractor {
     }
 
     if (preset.name?.value?.length) {
-      const f = FilterPresetMapperCommon.mapStringArrayFilter('name', preset.name);
+      const f = FilterPresetMapperCommon.mapStringArrayFilter(
+        'name',
+        preset.name,
+      );
       if (Object.keys(f).length > 0) parts.push(f);
     }
 

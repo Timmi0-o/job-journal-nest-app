@@ -15,6 +15,7 @@ export class GetJournalUseCase {
 
     return this.ensureExistsHelper.assertExists(payload.id, {
       ...(presetConfig.select?.length ? { select: presetConfig.select } : {}),
+      ...(presetConfig.include ? { include: presetConfig.include } : {}),
     });
   }
 }

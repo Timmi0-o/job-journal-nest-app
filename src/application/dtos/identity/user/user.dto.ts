@@ -1,7 +1,7 @@
 import { IGetByIdDto, IGetManyQueryDto, IGetManyResponse } from '@application/dtos/common';
 import {
-  ICreateUserInput,
-  IUpdateUserInput,
+  ICreateUserPayload,
+  IUpdateUserPayload,
   IUserEntity,
 } from '@domain/entities/identity/user/i-user.entity';
 import { IUserFiltersPreset } from '@shared/presets';
@@ -10,9 +10,9 @@ export type IGetUserDto = IGetByIdDto;
 
 export type IGetUsersDto = IGetManyQueryDto<IUserFiltersPreset>;
 
-export type ICreateUserDto = ICreateUserInput;
+export type ICreateUserDto = ICreateUserPayload;
 
-export type IUpdateUserDto = { id: string } & IUpdateUserInput;
+export type IUpdateUserDto = { id: string } & IUpdateUserPayload;
 
 export type IDeleteUserDto = { id: string };
 

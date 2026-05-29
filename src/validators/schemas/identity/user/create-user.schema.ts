@@ -17,8 +17,8 @@ export const createUserSchema = {
     },
     status: { type: 'string', enum: Object.values(UserStatus) },
     role: { type: 'string', enum: Object.values(UserRole) },
-    passwordHash: { type: 'string', minLength: 8, maxLength: 255 },
+    password: { type: 'string', minLength: 8, maxLength: 255 },
   },
-  required: ['surname', 'name', 'patronymic', 'email', 'phone', 'status', 'role', 'passwordHash'],
+  required: ['surname', 'name', 'patronymic', 'email', 'phone', 'status', 'role', 'password'],
   additionalProperties: false,
 } as JSONSchemaType<ICreateUserDto>;

@@ -1,0 +1,20 @@
+model Journal {
+  id String @id @default(uuid())
+
+  jobVariantId String @map("job_variant_id")
+
+  amount Decimal @map("amount")
+  unitId String  @map("unit_id")
+
+  endDate DateTime @map("end_date")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  unit       Unit       @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  jobVariant JobVariant @relation(fields: [jobVariantId], references: [id], onDelete: Cascade)
+
+  @@index([unitId])
+  @@index([jobVariantId])
+  @@map("Journals")
+}

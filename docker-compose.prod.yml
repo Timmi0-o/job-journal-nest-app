@@ -2,7 +2,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     container_name: job-journal-nest-app
     restart: unless-stopped
     ports:
@@ -17,20 +17,9 @@ services:
       DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-journal_secret}
       DATABASE_NAME: ${POSTGRES_DB:-job_journal}
       DATABASE_URL: postgresql://${POSTGRES_USER:-journal}:${POSTGRES_PASSWORD:-journal_secret}@postgres:5432/${POSTGRES_DB:-job_journal}
-      CHOKIDAR_USEPOLLING: 'true'
-      WATCHPACK_POLLING: 'true'
-    volumes:
-      - .:/app
-      - app_node_modules:/app/node_modules
     depends_on:
       postgres:
         condition: service_healthy
-    develop:
-      watch:
-        - action: rebuild
-          path: package.json
-        - action: rebuild
-          path: package-lock.json
 
   postgres:
     image: postgres:16-alpine
@@ -57,4 +46,3 @@ services:
 
 volumes:
   postgres_data:
-  app_node_modules:

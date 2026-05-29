@@ -1,0 +1,35 @@
+model User {
+  id String @id @default(uuid())
+
+  surname    String  @map("surname")
+  name       String  @map("name")
+  patronymic String? @map("patronymic")
+
+  email String  @map("email")
+  phone String? @map("phone")
+
+  status Status @map("status")
+  role   Role   @map("role")
+
+  passwordHash String @map("password_hash")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([email])
+  @@index([phone])
+  @@map("Users")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
+
+enum Status {
+  ACTIVE // Пользователь активен
+  INACTIVE // Пользователь не активен
+  PENDING // Пользователь ожидает активации
+  BLOCKED // Пользователь заблокирован
+}

@@ -1,4 +1,7 @@
-import type { IGetUsersDto, IGetUsersResponse } from '@application/dtos/identity/user';
+import type {
+  IGetUsersDto,
+  IGetUsersResponse,
+} from '@application/dtos/identity/user';
 import { GetManyHelper } from '@application/use-cases/helpers';
 import type { IUserEntity } from '@domain/entities/identity/user/i-user.entity';
 import type { IUserRepository } from '@domain/repositories/identity/user/i-user.repository';
@@ -19,15 +22,16 @@ export class GetUsersUseCase {
 
     const findParams = GetManyHelper.prepareFindManyParams({
       payload,
-      presetSelect: presetConfig.select as string[],
+      presetSelect: presetConfig.select,
       where: dbWhere,
       requiredIds: payload.requiredIds,
     });
 
-    const [users, totalCount] = await GetManyHelper.findManyAndCount<IUserEntity>(
-      this.repository,
-      findParams,
-    );
+    const [users, totalCount] =
+      await GetManyHelper.findManyAndCount<IUserEntity>(
+        this.repository,
+        findParams,
+      );
 
     return GetManyHelper.buildResponse({
       data: users,
